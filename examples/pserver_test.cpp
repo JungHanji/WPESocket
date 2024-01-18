@@ -18,5 +18,5 @@ int main(){
 
     server.listenPkgs();
     server.listenAccepts();
-    while (true) server.deleteDisabledClients();
+    while (true) ; // make something other
 }
