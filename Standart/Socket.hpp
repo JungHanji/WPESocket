@@ -1,5 +1,5 @@
 #pragma once
-#include <re/init.hpp>
+#include "init.hpp"
 
 #include <winsock2.h>
 #include <Ws2tcpip.h>
@@ -67,8 +67,8 @@ class Socket{
 
     int tsend(SOCKET &to_sock, string data, int buffer_size = BUFFER_SIZE){
         int sendResult = send(to_sock, 
-                              clamp(data, buffer_size).c_str(), 
-                              clamp(data, buffer_size).size() + 1, 
+                              string(data, 0, buffer_size).c_str(), 
+                              string(data, 0, buffer_size).size() + 1, 
                               0
                         );
         if(sendResult == -1){
